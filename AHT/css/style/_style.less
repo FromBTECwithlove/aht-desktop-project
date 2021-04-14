@@ -1,0 +1,109 @@
+@font        : 'Poppins';
+@perspective : 400px;
+
+.flex {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: -moz-flex;
+    display: -o-flex;
+}
+
+.flex-wrap {
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap    : wrap;
+    -o-flex-wrap     : wrap;
+}
+
+.mixin-menu-li(@_y: 90deg,  @_opacity: 0.4s, @_transform: 0.5s) {
+    opacity: 0;
+
+    -webkit-transform: rotateY(@_y);
+    -moz-transform   : rotateY(@_y);
+    -ms-transform    : rotateY(@_y);
+    -o-transform     : rotateY(@_y);
+    transform        : rotateY(@_y);
+
+    -webkit-transition: opacity @_opacity, -webkit-transform @_transform;
+    -moz-transition   : opacity @_opacity, -moz-transform @_transform;
+    -ms-transition    : opacity @_opacity, -ms-transform @_transform;
+    -o-transition     : opacity @_opacity, -o-transform @_transform;
+    transition        : opacity @_opacity, transform @_transform;
+}
+
+.mixin-submenu(@perspective) {
+    left      : 0;
+    max-height: 0;
+    position  : absolute;
+    top       : 100%;
+    z-index   : 0;
+
+    -webkit-perspective: @perspective;
+    -moz-perspective   : @perspective;
+    -ms-perspective    : @perspective;
+    -o-perspective     : @perspective;
+    perspective        : @perspective;
+
+}
+
+.child(@_transition: 350ms) {
+    -webkit-transition-delay: @_transition;
+    -moz-transition-delay   : @_transition;
+    -ms-transition-delay    : @_transition;
+    -o-transition-delay     : @_transition;
+    transition-delay        : @_transition;
+}
+
+.li-hover-submenu {
+    opacity: 1;
+
+    -webkit-transform: none;
+    -moz-transform   : none;
+    -ms-transform    : none;
+    -o-transform     : none;
+    transform        : none;
+}
+
+.li-hover-child(@_transition: 0ms) {
+    -webkit-transition-delay: @_transition;
+    -moz-transition-delay   : @_transition;
+    -ms-transition-delay    : @_transition;
+    -o-transition-delay     : @_transition;
+    transition-delay        : @_transition;
+}
+
+.mixins-left-right {
+    width: 33.3%;
+}
+
+.mixins-between {
+    width: 33.4%;
+}
+
+.mixin-text-inf {
+    .text-inf {
+        padding-left: 11px;
+    }
+}
+
+.scrollbar {
+
+    /* width */
+    ::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: @track;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: @thumb;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: @thumb-hover;
+    }
+}
